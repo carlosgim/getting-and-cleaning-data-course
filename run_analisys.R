@@ -76,3 +76,6 @@ all_data <- rbind(all_test, all_train)
 tidy_data <- all_data %>%
   group_by(subject,Activity) %>%
   summarise_each(funs(mean(., na.rm=TRUE)), -Label)
+
+write.table(tidy_data,  file = "./tidy_data.txt", row.names = FALSE)
+
